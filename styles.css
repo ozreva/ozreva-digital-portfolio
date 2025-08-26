@@ -435,3 +435,15 @@ body::-webkit-scrollbar {
   opacity: 0.94;
   margin: 0;
 }
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.5rem;
+  }
+  .cert-card h2 {
+    font-size: 1.2rem;
+  }
+  .certifications-list {
+    padding: 0 10px;
+  }
+}
