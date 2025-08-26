@@ -1,0 +1,313 @@
+/* Full background */
+body, html {
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  font-family: 'Inter', 'Space Grotesk', Arial, sans-serif;
+  background: url("images/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Header */
+.main-header {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(10,10,20,0.88) 85%, rgba(10,10,20,0));
+  box-shadow: none;
+  height: 80px;
+}
+
+.header-bar {
+  position: relative;
+  max-width: 1150px;
+  margin: 0 auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 40px;
+}
+
+.logo {
+  color: #fff;
+  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  font-size: 1.4rem;              /* adjust size if needed */
+  font-weight: 400;                /* 300 or 400 for thin, 700 for bold */
+  letter-spacing: 0.12em;          /* optional: space out letters for a logo feel */
+  text-decoration: none;
+  line-height: 80px;
+  text-transform: uppercase;       /* if you want all caps */
+}
+
+
+/* Navigation centered */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.nav-center ul {
+  display: flex;
+  gap: 52px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-center ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.07rem;
+  font-family: 'Inter', Arial, sans-serif;
+  padding: 5px 0;
+  transition: color 0.2s;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+.nav-center ul li a:hover {
+  color: #99f6e4;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: transparent;
+}
+.hero-center {
+  margin-top: 90px;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-tag {
+  display: inline-block;
+  margin-bottom: 2.25rem;
+  padding: 7px 18px 7px 11px;
+  background: rgba(18,22,36,0.7);
+  border-radius: 32px;
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+  box-shadow: 0 2px 10px 3px rgba(18,22,36,0.18);
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(3px);
+}
+.status-tag .dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 9px;
+  background: #36d399;
+  box-shadow: 0 0 8px #36d399, 0 0 1px #fff;
+  vertical-align: middle;
+}
+
+/* Headline stack: NETWORK SECURITY above ENGINEER */
+.headline-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* NETWORK SECURITY: one line only */
+.hero-title {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 2.77vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+/* ENGINEER: large, centered below */
+.hero-subtitle {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 6vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+/* Description Text Below */
+.hero-desc {
+  font-family: 'Inter', Arial, sans-serif;
+  color: #fff;
+  opacity: 0.92;
+  font-size: 1.27rem;
+  font-weight: 400;
+  margin-top: 2em;
+  margin-bottom: 0;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  .hero-subtitle {
+    font-size: 2.7rem;
+  }
+  .hero-center {
+    margin-top: 120px;
+    padding: 0 5vw;
+  }
+}
+
+/* Remove scrollbars for modern look */
+body {
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.exp-hero {
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 32px;
+}
+
+.exp-title {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 3.6vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 0.7rem;
+}
+
+.exp-desc {
+  font-family: 'Inter', Arial, sans-serif;
+  color: #fff;
+  opacity: 0.9;
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+.exp-list {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  padding: 0 20px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.exp-card {
+  background: rgba(18,22,36,0.8);
+  border-radius: 16px;
+  padding: 28px 24px 21px 24px;
+  box-shadow: 0 8px 36px 0 rgba(26, 212, 238, 0.10);
+  color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-card h2 {
+  font-size: 1.45rem;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 700;
+  margin: 0 0 0.3rem 0;
+  letter-spacing: 0.03em;
+}
+
+.exp-card p {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.07rem;
+  opacity: 0.94;
+  margin-bottom: 1rem;
+}
+
+.exp-link {
+  align-self: flex-start;
+  color: #22d3ee;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid #22d3ee;
+  transition: color 0.16s, border-color 0.16s;
+  font-size: 1.11rem;
+  letter-spacing: 0.01em;
+}
+
+.exp-link:hover {
+  color: #38e3ad;
+  border-color: #38e3ad;
+}
+
+/* Article container styling */
+.article-content {
+  max-width: 800px;
+  margin: 120px auto 60px auto;  /* margin-top large enough to clear fixed header */
+  padding: 28px 24px 40px 24px;
+  background: rgba(18, 22, 36, 0.8); /* semi-transparent dark background */
+  border-radius: 16px;
+  box-shadow: 0 8px 36px rgba(26, 212, 238, 0.1);
+  color: #fff;
+  line-height: 1.6;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Main Article Title */
+.article-title {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 120px;        /* push title down */
+  margin-bottom: 0.75em;
+  text-align: center;
+}
+
+.article-meta {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1rem;
+  opacity: 0.75;
+  color: #a0aec0;
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 18px;
+}
+
+
+/* Headings and paragraphs inside article */
+.article-content h2 {
+  font-family: 'Space Grotesk', 'Inter', sans
+
+}

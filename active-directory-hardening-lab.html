@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Active Directory Hardening Lab | ozreva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-bar">
+      <a href="index.html" class="logo">ozreva</a>
+      <nav class="nav-center">
+        <ul>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="certifications.html">Certifications</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="article-hero">
+      <h1 class="article-title">Active Directory Hardening Lab</h1>
+      <div class="article-meta">
+        <span>By ozreva</span> | <time datetime="2025-08-25">August 25, 2025</time>
+      </div>
+    </section>
+    <article class="article-content">
+      <h2>Introduction</h2>
+      <p>
+        Active Directory remains the backbone of identity management in modern enterprises. Because of its central role in authentication, authorization, and resource access, it has also become a prime target for attackers. To better understand both its strengths and vulnerabilities, I designed and implemented a dedicated <strong>Active Directory Security and Hardening Lab</strong> that simulated a real-world enterprise environment. This project focused on deploying an Active Directory domain, enforcing security baselines, integrating monitoring tools, simulating common attack techniques, and applying appropriate defensive measures.
+      </p>
+
+      <h2>Environment Design and Deployment</h2>
+      <p>
+        The foundation of the lab was a <strong>Windows Server 2019 domain controller</strong>, configured with <strong>Domain Name System (DNS)</strong> and <strong>Dynamic Host Configuration Protocol (DHCP)</strong> services. Multiple <strong>Windows 10 and Windows 11 clients</strong> were joined to the domain to replicate a typical corporate workstation fleet. This configuration provided a functional enterprise-like infrastructure, enabling controlled testing of authentication processes, Group Policy enforcement, and centralized service delivery.
+      </p>
+      <p>
+        Deploying DNS and DHCP alongside the domain controller was intentional. DNS is fundamental to Active Directory’s operation, as domain services rely heavily on accurate name resolution. DHCP centralized IP management and reduced the chance of configuration errors across endpoints, ensuring seamless networking between lab machines.
+      </p>
+
+      <h2>Establishing Baseline Security with Group Policy</h2>
+      <p>
+        Once the environment was operational, I implemented a series of <strong>Group Policy Objects (GPOs)</strong> to enforce security standards across the domain. These included:
+      </p>
+      <ul>
+        <li>Disabling default <strong>Guest Accounts</strong> to remove unnecessary attack surfaces.</li>
+        <li>Enforcing strong password policies with a <strong>12+ character requirement</strong> and <strong>90-day expiration</strong>.</li>
+        <li>Implementing an <strong>account lockout threshold</strong> after five failed logon attempts.</li>
+      </ul>
+      <p>
+        These policies reflected enterprise security baselines, protecting against credential brute force and misuse of privileged accounts. Centralized policy deployment ensured consistency across all systems, strengthening the domain’s overall security posture.
+      </p>
+
+      <h2>Monitoring and Visibility: Sysmon and Event Forwarding</h2>
+      <p>
+        To enhance visibility within the environment, I deployed <strong>Sysmon</strong> for advanced process and network telemetry, and configured <strong>Windows Event Forwarding (WEF)</strong> to centralize event logs. Sysmon allowed fine-grained monitoring of process execution, registry changes, and network activity, while WEF delivered these logs to a central server for easier correlation and analysis.
+      </p>
+      <p>
+        Centralized logging was a critical component of the lab, enabling proactive monitoring and laying the groundwork for incident response workflows. By aggregating activity from all client systems, potential attack patterns could be identified early, aligning the environment with security operations best practices.
+      </p>
+
+      <h2>Simulating Attacks and Implementing Defenses</h2>
+      <p>
+        To assess the resilience of the environment, I introduced <strong>red-team style simulations</strong> using tools commonly employed by attackers. From a Kali Linux virtual machine, I executed credential-theft and lateral movement techniques, including:
+      </p>
+      <ul>
+        <li><strong>Mimikatz</strong> for credential dumping.</li>
+        <li><strong>Pass-the-Hash (PtH)</strong> attacks to leverage compromised NTLM hashes.</li>
+      </ul>
+      <p>
+        The findings from these tests informed a series of defensive hardening measures:
+      </p>
+      <ul>
+        <li>Enabling <strong>LSA Protection</strong> to safeguard sensitive credentials in memory.</li>
+        <li>Deploying <strong>Credential Guard</strong>, which uses virtualization-based security to isolate secrets from attackers.</li>
+        <li>Disabling <strong>NTLMv1</strong>, thereby eliminating reliance on a legacy authentication protocol.</li>
+        <li>Adopting a <strong>tiered administrative account structure</strong>, which restricted higher-level privileges to controlled contexts and enforced the principle of least privilege.</li>
+      </ul>
+      <p>
+        Through this balance of offense and defense, the lab demonstrated how organizations can validate security posture by simulating adversarial behavior, then implementing layered defenses in response.
+      </p>
+
+      <h2>Auditing Active Directory and Enforcing Least Privilege</h2>
+      <p>
+        To further reduce risk, I conducted a permissions audit across the directory. This process identified and eliminated excessive privileges and unnecessary administrative rights. A <strong>tiered administrative model</strong> was then adopted, separating enterprise, server, and workstation administrators, ensuring that elevated accounts could not be misused outside their designated domain.
+      </p>
+      <p>
+        This step was crucial in aligning the environment with least privilege principles and reducing opportunities for privilege escalation—both of which are common contributors to real-world breaches.
+      </p>
+
+      <h2>Conclusion</h2>
+      <p>
+        This project provided a practical exploration of enterprise Active Directory security from initial deployment to post-attack hardening. By combining <strong>infrastructure setup</strong>, <strong>policy enforcement</strong>, <strong>monitoring integration</strong>, <strong>attack simulation</strong>, and <strong>security auditing</strong>, the lab mirrored the challenges and responses found in real organizational environments.
+      </p>
+      <p>
+        Key takeaways included the importance of:
+      </p>
+      <ul>
+        <li>Establishing <strong>strong baselines</strong> through Group Policy.</li>
+        <li>Maintaining <strong>visibility</strong> with Sysmon and centralized logging.</li>
+        <li>Validating defenses through <strong>controlled attack simulations</strong>.</li>
+        <li>Enforcing <strong>least privilege</strong> and tiered administration to minimize risk.</li>
+      </ul>
+      <p>
+        The result was a hardened Active Directory environment that reflected both <strong>defensive depth</strong> and <strong>operational realism</strong>—a valuable exercise in understanding and securing one of the most critical components of enterprise IT infrastructure.
+      </p>
+    </article>
+  </main>
+</body>
+</html>
