@@ -379,3 +379,72 @@ body::-webkit-scrollbar {
   background-color: #17a1b6;
 }
 
+.certifications-hero {
+  min-height: 30vh;
+  text-align: center;
+  padding: 100px 20px 40px 20px;
+  color: #fff;
+}
+
+.page-title {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 3.6vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.3rem;
+  color: #a0aec0;
+  margin: 0;
+}
+
+.certifications-list {
+  max-width: 850px;
+  margin: 0 auto 80px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.cert-card {
+  background: rgba(18, 22, 36, 0.8);
+  border-radius: 16px;
+  padding: 28px 24px 21px 24px;
+  box-shadow: 0 8px 36px rgba(26, 212, 238, 0.1);
+  color: #fff;
+  text-align: left;
+}
+
+.cert-card h2 {
+  font-size: 1.45rem;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 700;
+  margin: 0 0 0.4rem 0;
+  letter-spacing: 0.03em;
+  color: #22d3ee;
+}
+
+.cert-card p {
+  font-size: 1.1rem;
+  font-family: 'Inter', Arial, sans-serif;
+  opacity: 0.94;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.5rem;
+  }
+  .cert-card h2 {
+    font-size: 1.2rem;
+  }
+  .certifications-list {
+    padding: 0 10px;
+  }
+}
+
