@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Firewall and IDS/IPS Security Lab | ozreva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-bar">
+      <a href="index.html" class="logo">ozreva</a>
+      <nav class="nav-center">
+        <ul>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="certifications.html">Certifications</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="article-hero">
+      <h1 class="article-title">Firewall and IDS/IPS Security Lab</h1>
+      <div class="article-meta">
+        <span>By ozreva</span> | <time datetime="2025-08-25">August 25, 2025</time>
+      </div>
+    </section>
+    <article class="article-content">
+      <h2>Introduction</h2>
+      <p>
+        Network security is the first line of defense against modern cyber threats. Firewalls combined with Intrusion Detection and Prevention Systems (IDS/IPS) form a critical layer of protection by filtering traffic, segmenting networks, and detecting malicious activity before it can spread. To explore these concepts in depth, I designed and implemented a <strong>Firewall and IDS/IPS Security Lab</strong> using <strong>pfSense</strong> and <strong>Suricata</strong>, with additional integration into a Security Information and Event Management (SIEM) platform.
+      </p>
+      <p>
+        This lab demonstrated how segmentation, detection, prevention, and monitoring work together to build an effective defensive perimeter and internal security layer.
+      </p>
+
+      <h2>Environment Design: pfSense Deployment and VLAN Segmentation</h2>
+      <p>
+        At the core of the lab environment was a <strong>pfSense firewall</strong>, serving as the central gateway for network traffic. I implemented <strong>VLAN-based network segmentation</strong> to separate the environment into three security zones:
+      </p>
+      <ul>
+        <li><strong>Servers VLAN</strong> — Housing infrastructure services and critical applications.</li>
+        <li><strong>Workstations VLAN</strong> — Representing end-user systems.</li>
+        <li><strong>DMZ</strong> — Hosting externally accessible services for simulated Internet-facing access.</li>
+      </ul>
+      <p>
+        Firewall rules between VLANs were configured with a <strong>least-privilege approach</strong>, ensuring that only explicitly allowed communication paths were permitted. For example, workstations could reach application servers, but not directly connect to the domain controller.
+      </p>
+      <p>
+        <em>Why this was done:</em> Network segmentation is a foundational best practice, sharply reducing lateral movement in the event of a compromise. By restricting communication between VLANs, the firewall effectively limits the blast radius of a potential intrusion.
+      </p>
+
+      <h2>IDS/IPS Integration: Suricata with pfBlockerNG</h2>
+      <p>
+        To add active monitoring and defense capabilities, I deployed <strong>Suricata IDS/IPS</strong> in <strong>inline mode</strong>. This allowed the system not only to detect malicious activity but also to automatically block it in real time.
+      </p>
+      <p>
+        Additionally, <strong>pfBlockerNG</strong> was integrated to provide continuous threat intelligence feeds, enabling proactive blocking of known malicious IPs and domains. The combination of Suricata and pfBlockerNG ensured comprehensive detection and prevention against both signature-based and reputation-based threats.
+      </p>
+      <p>
+        <em>Why this was done:</em> Firewalls alone cannot detect subtle intrusion attempts like SQL injections or brute force logins. IDS/IPS systems offer this capability, and inline blocking provides proactive enforcement rather than passive alerting.
+      </p>
+
+      <h2>Attack Simulation and Defense Validation</h2>
+      <p>
+        To validate the defenses, I conducted a series of controlled attack simulations from a <strong>Kali Linux VM</strong>, including:
+      </p>
+      <ul>
+        <li><strong>Nmap scans</strong> to probe open ports and services.</li>
+        <li><strong>Hydra brute force attacks</strong> against RDP and SSH.</li>
+        <li><strong>SQL injection attempts</strong> against a vulnerable web service in the DMZ.</li>
+        <li><strong>Malware transfer tests</strong>, attempting to move malicious executables across VLANs.</li>
+      </ul>
+      <p>
+        The firewall and Suricata successfully detected and blocked most of these attempts in real time, validating the effectiveness of the layered defense strategy.
+      </p>
+
+      <h2>Fine-Tuning Detection and Rulesets</h2>
+      <p>
+        After initial deployment, I tuned Suricata to improve detection accuracy and reduce false positives:
+      </p>
+      <ul>
+        <li>Adjusted default Suricata rules to reduce noise in alerts.</li>
+        <li>Developed <strong>custom signatures</strong> to detect RDP brute force attempts.</li>
+        <li>Implemented firewall <strong>rate-limiting rules</strong> to slow down port scans and login attempts.</li>
+      </ul>
+      <p>
+        <em>Why this was done:</em> IDS/IPS effectiveness relies on accuracy. Excessive false positives overwhelm monitoring, while weak detection misses threats. Tuning and custom signatures provided more precise detection tailored to the environment.
+      </p>
+
+      <h2>Monitoring and Incident Response with Splunk SIEM</h2>
+      <p>
+        All <strong>Suricata alerts</strong> and <strong>pfSense firewall logs</strong> were forwarded to a <strong>Splunk SIEM</strong>. Custom dashboards and alerting were built for:
+      </p>
+      <ul>
+        <li>Real-time tracking of blocked and allowed traffic.</li>
+        <li>Geographic visualization of attack sources.</li>
+        <li>Automated alerts for repeated failed logins or aggressive scanning behavior.</li>
+      </ul>
+      <p>
+        <em>Why this was done:</em> Centralized monitoring is vital for effective detection and incident response. SIEM integration allowed correlation of firewall and IDS data, enabling faster threat identification and response.
+      </p>
+
+      <h2>Conclusion</h2>
+      <p>
+        This Firewall and IDS/IPS Security Lab illustrated how segmentation, detection, prevention, and SIEM integration combine to create a strong defensive posture. The project provided hands-on validation of best practices for network security and aligned closely with techniques used in enterprise environments.
+      </p>
+      <p>
+        Key outcomes included:
+      </p>
+      <ul>
+        <li>Improved <strong>network segmentation</strong> using VLANs and least-privilege firewall rules.</li>
+        <li>Enhanced protection through <strong>inline IDS/IPS</strong> and <strong>threat intelligence feeds</strong>.</li>
+        <li>Validation of defenses with <strong>red-team style attack simulations</strong>.</li>
+        <li>Increased detection accuracy via <strong>rule tuning and custom signatures</strong>.</li>
+        <li>Centralized <strong>monitoring and alerting</strong> with Splunk dashboards.</li>
+      </ul>
+      <p>
+        The result was a hardened, monitored environment capable of withstanding and responding to realistic attack scenarios—an essential exercise in building and maintaining enterprise-grade network security.
+      </p>
+    </article>
+  </main>
+</body>
+</html>
