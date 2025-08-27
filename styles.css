@@ -492,3 +492,17 @@ body::-webkit-scrollbar {
   }
 }
 
+/* Always hide the hamburger by default (desktop) */
+.menu-toggle {
+  display: none !important;
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block !important;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}
