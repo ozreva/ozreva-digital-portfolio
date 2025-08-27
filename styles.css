@@ -436,24 +436,59 @@ body::-webkit-scrollbar {
   margin: 0;
 }
 
+/* Mobile Menu Toggle */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+  z-index: 20;
+}
+
+/* Mobile Navigation */
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 2.5rem;
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
   }
-  .cert-card h2 {
-    font-size: 1.2rem;
+
+  .nav-center {
+    position: static;
+    transform: none;
+    justify-content: center;
+    width: 100%;
   }
-  .certifications-list {
-    padding: 0 10px;
+
+  .nav-center ul {
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(10, 10, 20, 0.95);
+    padding: 20px;
+    border-radius: 12px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+
+  .nav-center ul.show {
+    display: flex;
+  }
+
+  /* Mobile text scaling */
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 2.4rem;
+  }
+  .hero-desc {
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 768px) {
-  body {
-    font-size: 16px;
-  }
-
-  .nav {
-    flex-direction: column; /* stacks nav items */
-  }
-}

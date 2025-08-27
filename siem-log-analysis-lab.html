@@ -12,6 +12,7 @@
   <header class="main-header">
     <div class="header-bar">
       <a href="index.html" class="logo">ozreva</a>
+      <button class="menu-toggle">☰</button>
       <nav class="nav-center">
         <ul>
           <li><a href="experience.html">Experience</a></li>
@@ -120,5 +121,12 @@
       </p>
     </article>
   </main>
+    <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-center ul');
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+</script>
 </body>
 </html>
