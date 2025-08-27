@@ -506,3 +506,54 @@ body::-webkit-scrollbar {
     top: 20px;
   }
 }
+
+/* Mobile layout fixes */
+@media (max-width: 768px) {
+  /* Reduce header height */
+  .main-header {
+    height: 60px;
+  }
+  .header-bar {
+    height: 60px;
+    padding: 0 20px;
+  }
+  .logo {
+    font-size: 1.1rem;
+    line-height: 60px;
+  }
+
+  /* Hero section spacing */
+  .hero-center {
+    margin-top: 80px;
+    padding: 0 15px;
+  }
+
+  /* Hero text scaling */
+  .hero-title {
+    font-size: 1.6rem;   /* instead of vw scaling */
+  }
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  /* Navigation links smaller */
+  .nav-center ul li a {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.4rem;
+  }
+  .hero-subtitle {
+    font-size: 1.8rem;
+  }
+  .hero-desc {
+    font-size: 0.9rem;
+  }
+}
